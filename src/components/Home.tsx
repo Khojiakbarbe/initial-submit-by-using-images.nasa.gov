@@ -19,12 +19,12 @@ const Home: React.FC = () => {
         setItems(data.collection.items)
     }
 
-    const [yes, setYes] = useState<string>('title')
+    const [searchBy, setSearchBy] = useState<string>('title')
     const [search, setSearch] = useState<string>('')
 
     function getAgain(e: FormEvent) {
         e.preventDefault();
-        if (yes === 'title') {
+        if (searchBy === 'title') {
             getData(search, '')
         } else {
             getData('', search)
@@ -42,7 +42,7 @@ const Home: React.FC = () => {
             </form>
             <div className="flex text-white my-5 rounded-lg overflow-hidden">
                 <p className="bg-slate-900 p-2">Search By </p>
-                <select value={yes} className='bg-slate-800 text-white rounded-r-lg' onChange={e => setYes(e.target.value)}>
+                <select value={searchBy} className='bg-slate-800 text-white rounded-r-lg' onChange={e => setSearchBy(e.target.value)}>
                     <option value="title">Title</option>
                     <option value="description">Description</option>
                 </select>
